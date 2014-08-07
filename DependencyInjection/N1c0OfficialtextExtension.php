@@ -41,35 +41,24 @@ class N1c0OfficialtextExtension extends Extension
 
         $container->setParameter('n1c0_officialtext.model.officialtext.class', $config['class']['model']['officialtext']);
         $container->setParameter('n1c0_officialtext.model.authorsrc.class', $config['class']['model']['authorsrc']);
-        $container->setParameter('n1c0_officialtext.model.housepublishing.class', $config['class']['model']['housepublishing']);
-        $container->setParameter('n1c0_officialtext.model.tag.class', $config['class']['model']['tag']);
-        $container->setParameter('n1c0_officialtext.model.book.class', $config['class']['model']['book']);
+
 
         $container->setParameter('n1c0_officialtext.model_manager_name', $config['model_manager_name']);
 
         $container->setParameter('n1c0_officialtext.form.officialtext.type', $config['form']['officialtext']['type']);
         $container->setParameter('n1c0_officialtext.form.authorsrc.type', $config['form']['authorsrc']['type']);
-        $container->setParameter('n1c0_officialtext.form.housepublishing.type', $config['form']['housepublishing']['type']);
-        $container->setParameter('n1c0_officialtext.form.tag.type', $config['form']['tag']['type']);
-        $container->setParameter('n1c0_officialtext.form.book.type', $config['form']['book']['type']);
+
 
         $container->setParameter('n1c0_officialtext.form.officialtext.name', $config['form']['officialtext']['name']);
         $container->setParameter('n1c0_officialtext.form.authorsrc.name', $config['form']['authorsrc']['name']);
-        $container->setParameter('n1c0_officialtext.form.housepublishing.name', $config['form']['housepublishing']['name']);
-        $container->setParameter('n1c0_officialtext.form.tag.name', $config['form']['tag']['name']);
-        $container->setParameter('n1c0_officialtext.form.book.name', $config['form']['book']['name']);
+
 
         $container->setAlias('n1c0_officialtext.form_factory.officialtext', $config['service']['form_factory']['officialtext']);
         $container->setAlias('n1c0_officialtext.form_factory.authorsrc', $config['service']['form_factory']['authorsrc']);
-        $container->setAlias('n1c0_officialtext.form_factory.housepublishing', $config['service']['form_factory']['housepublishing']);
-        $container->setAlias('n1c0_officialtext.form_factory.tag', $config['service']['form_factory']['tag']);
-        $container->setAlias('n1c0_officialtext.form_factory.book', $config['service']['form_factory']['book']);
-
+      
         $container->setAlias('n1c0_officialtext.manager.officialtext', $config['service']['manager']['officialtext']);
         $container->setAlias('n1c0_officialtext.manager.authorsrc', $config['service']['manager']['authorsrc']);
-        $container->setAlias('n1c0_officialtext.manager.housepublishing', $config['service']['manager']['housepublishing']);
-        $container->setAlias('n1c0_officialtext.manager.tag', $config['service']['manager']['tag']);
-        $container->setAlias('n1c0_officialtext.manager.book', $config['service']['manager']['book']);
+
     }
 
     protected function loadAcl(ContainerBuilder $container, array $config)
@@ -80,15 +69,11 @@ class N1c0OfficialtextExtension extends Extension
         foreach (array(1 => 'create', 'view', 'edit', 'delete') as $index => $perm) {
             $container->getDefinition('n1c0_officialtext.acl.officialtext.roles')->replaceArgument($index, $config['acl_roles']['officialtext'][$perm]);
             $container->getDefinition('n1c0_officialtext.acl.authorsrc.roles')->replaceArgument($index, $config['acl_roles']['authorsrc'][$perm]);
-            $container->getDefinition('n1c0_officialtext.acl.housepublishing.roles')->replaceArgument($index, $config['acl_roles']['housepublishing'][$perm]);
-            $container->getDefinition('n1c0_officialtext.acl.tag.roles')->replaceArgument($index, $config['acl_roles']['tag'][$perm]);
-            $container->getDefinition('n1c0_officialtext.acl.book.roles')->replaceArgument($index, $config['acl_roles']['book'][$perm]);
+
         }
 
         $container->setAlias('n1c0_officialtext.acl.officialtext', $config['service']['acl']['officialtext']);
         $container->setAlias('n1c0_officialtext.acl.authorsrc', $config['service']['acl']['authorsrc']);
-        $container->setAlias('n1c0_officialtext.acl.housepublishing', $config['service']['acl']['housepublishing']);
-        $container->setAlias('n1c0_officialtext.acl.tag', $config['service']['acl']['tag']);
-        $container->setAlias('n1c0_officialtext.acl.book', $config['service']['acl']['book']);
+
     }
 }

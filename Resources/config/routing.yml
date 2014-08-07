@@ -3,3 +3,10 @@ n1c0_officialtext_officialtext:
     prefix: /v1
     resource: N1c0\OfficialtextBundle\Controller\OfficialtextController
     name_prefix:  api_1_ # naming collision
+
+n1c0_officialtext_authorsrc:
+    type: rest
+    prefix: /v1
+    parent: n1c0_officialtext_officialtext
+    resource: N1c0\OfficialtextBundle\Controller\AuthorsrcController
+    name_prefix:  api_1_ # naming collision
