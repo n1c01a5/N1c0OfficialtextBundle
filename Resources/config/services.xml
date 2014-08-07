@@ -7,12 +7,14 @@
 
     <parameters>
         <parameter key="n1c0_officialtext.model.officialtext.class">N1c0\OfficialtextBundle\Entity\Officialtext</parameter>
-        
+        <parameter key="n1c0_officialtext.model.authorsrc.class">N1c0\OfficialtextBundle\Entity\Authorsrc</parameter> 
         <parameter key="n1c0_officialtext.manager.officialtext.default.class">N1c0\OfficialtextBundle\Entity\OfficialtextManager</parameter>
+        <parameter key="n1c0_officialtext.manager.authorsrc.default.class">N1c0\OfficialtextBundle\Entity\AuthorsrcManager</parameter>
         <parameter key="n1c0_officialtext.listener.officialtext_blamer.class">N1c0\OfficialtextBundle\EventListener\OfficialtextBlamerListener</parameter>
         <parameter key="n1c0_officialtext.comment.officialtext_comment.class">N1c0\OfficialtextBundle\Comment\Thread</parameter>
         <parameter key="request_stack.class">Symfony\Component\HttpFoundation\RequestStack</parameter>
         <parameter key="n1c0_officialtext.manager.officialtext.acl.class">N1c0\OfficialtextBundle\Acl\AclOfficialtextManager</parameter>
+        <parameter key="n1c0_officialtext.manager.authorsrc.acl.class">N1c0\OfficialtextBundle\Acl\AclAuthorsrcManager</parameter>
         <parameter key="n1c0_officialtext.download.officialtext.class">N1c0\OfficialtextBundle\Download\DownloadOfficialtext</parameter>
     </parameters>
 
@@ -27,11 +29,26 @@
             <argument>%n1c0_officialtext.model.officialtext.class%</argument>
         </service>
 
-      
+        <service id="n1c0_officialtext.manager.authorsrc.default" class="%n1c0_officialtext.manager.authorsrc.default.class%">
+            <argument type="service" id="event_dispatcher" />
+            <argument type="service" id="n1c0_officialtext.entity_manager" />
+            <argument>%n1c0_officialtext.model.authorsrc.class%</argument>
+        </service>
 
         <service id="n1c0_officialtext.form_type.officialtext.default" class="N1c0\OfficialtextBundle\Form\OfficialtextType">
             <argument>%n1c0_officialtext.model.officialtext.class%</argument>
             <tag name="form.type" alias="n1c0_officialtext_officialtext" />
+        </service>
+
+        <service id="n1c0_officialtext.form_type.authorsrc.default" class="N1c0\OfficialtextBundle\Form\AuthorsrcType">
+            <argument>%n1c0_officialtext.model.authorsrc.class%</argument>
+            <tag name="form.type" alias="n1c0_officialtext_authorsrc" />
+        </service>
+
+        <service id="n1c0_officialtext.form_factory.authorsrc.default" class="N1c0\OfficialtextBundle\FormFactory\AuthorsrcFormFactory" public="false">
+            <argument type="service" id="form.factory" />
+            <argument>%n1c0_officialtext.form.authorsrc.type%</argument>
+            <argument>%n1c0_officialtext.form.authorsrc.name%</argument>
         </service>
 
         <service id="n1c0_officialtext.form_factory.officialtext.default" class="N1c0\OfficialtextBundle\FormFactory\OfficialtextFormFactory" public="false">
@@ -58,6 +75,21 @@
             <argument type="service" id="security.acl.provider" />
             <argument>%n1c0_officialtext.model.officialtext.class%</argument>
         </service>
+
+        <service id="n1c0_officialtext.acl.authorsrc.security" class="N1c0\OfficialtextBundle\Acl\SecurityAuthorsrcAcl">
+            <argument type="service" id="security.context" />
+            <argument type="service" id="security.acl.object_identity_retrieval_strategy" />
+            <argument type="service" id="security.acl.provider" />
+            <argument>%n1c0_officialtext.model.authorsrc.class%</argument>
+        </service>
+        <service id="n1c0_officialtext.acl.authorsrc.roles" class="N1c0\OfficialtextBundle\Acl\RoleAuthorsrcAcl">
+            <argument type="service" id="security.context" />
+            <argument /> <!-- Create role -->
+            <argument /> <!-- View role -->
+            <argument /> <!-- Edit role -->
+            <argument /> <!-- Delete role -->
+            <argument>%n1c0_officialtext.model.authorsrc.class%</argument>
+        </service>
         <service id="n1c0_officialtext.acl.officialtext.roles" class="N1c0\OfficialtextBundle\Acl\RoleOfficialtextAcl">
             <argument type="service" id="security.context" />
             <argument /> <!-- Create role -->
@@ -72,7 +104,10 @@
             <argument type="service" id="n1c0_officialtext.manager.officialtext.default" />
             <argument type="service" id="n1c0_officialtext.acl.officialtext" />
         </service>
-       
+        <service id="n1c0_officialtext.manager.authorsrc.acl" class="%n1c0_officialtext.manager.authorsrc.acl.class%" public="false">
+            <argument type="service" id="n1c0_officialtext.manager.authorsrc.default" />
+            <argument type="service" id="n1c0_officialtext.acl.authorsrc" />
+        </service> 
         <service id="n1c0_officialtext.officialtext.download" class="%n1c0_officialtext.download.officialtext.class%">
             <argument type="service" id="n1c0_officialtext.manager.officialtext" on-invalid="null" />
         </service>
