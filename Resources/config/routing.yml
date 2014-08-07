@@ -1,0 +1,5 @@
+n1c0_officialtext_officialtext:
+    type: rest
+    prefix: /v1
+    resource: N1c0\OfficialtextBundle\Controller\OfficialtextController
+    name_prefix:  api_1_ # naming collision

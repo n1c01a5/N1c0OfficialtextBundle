@@ -1,0 +1,11 @@
+<h1 class="title">{{ 'officialtext.list'|trans({}, 'n1c0OfficialtextBundle') }}</h1>
+<ul id="officialtext-list">
+{% for officialtext in officialtexts %}
+    <li>
+        <a href="{{ path('api_1_get_officialtext', {'id': officialtext.id}) }}">{{ officialtext.title }}</a>
+        {#[<a href="{{ path('api_1_edit_officialtexts', {'id': officialtext.id}) }}">{{ 'officialtext.edit.link'|trans({}, 'n1c0OfficialtextBundle') }}</a>]#}
+        {#[<a href="{{ path('api_1_remove_officialtexts', {'id': officialtext.id}) }}">{{ 'officialtext.remove.link'|trans({}, 'n1c0OfficialtextBundle') }}</a>]#}
+    </li>
+{% endfor %}
+</ul>
+<p><a href="{{ path('api_1_new_officialtext') }}">{{ 'officialtext.new.link'|trans({}, 'n1c0OfficialtextBundle') }}</a></p>
