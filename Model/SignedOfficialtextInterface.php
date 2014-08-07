@@ -29,12 +29,5 @@ interface SignedOfficialtextInterface extends OfficialtextInterface
      * @return UserInterface
      */
     public function getAuthors();
-
-    /**
-     * Gets the last author of the Officialtext
-     *
-     * @return UserInterface
-     */
-    public function getAuthor();
 }
 

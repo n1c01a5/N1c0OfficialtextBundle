@@ -24,7 +24,7 @@ class OfficialtextType extends AbstractType
         $builder
             ->add('title')
             ->add('body')
-            ->add('definition')
+            ->add('url')
             ->add('createdAt')
         ;
     }

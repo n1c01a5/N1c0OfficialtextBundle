@@ -31,13 +31,12 @@ abstract class Officialtext implements OfficialtextInterface
      */
     protected $body;
 
-
     /**
-     * Definition
+     * Url
      *
-     * @var boolean
+     * @var string
      */
-    protected $definition;
+    protected $url;
 
     /**
      * CreatedAt
@@ -103,22 +102,21 @@ abstract class Officialtext implements OfficialtextInterface
     }
 
     /**
-     * @return boolean
+     * @return string
      */
-    public function getDefinition()
+    public function getUrl()
     {
-        return $this->definition;
+        return $this->url;
     }
 
     /**
-     * @param  boolean
+     * @param  string
      * @return null
      */
-    public function setDefinition($definition)
+    public function setUrl($url)
     {
-        $this->definition = $definition;
+        $this->url = $url;
     }
-
 
     /**
      * @return date

@@ -21,11 +21,6 @@ Interface OfficialtextInterface
      * @return array with authors of the officialtext
      */
     public function getAuthorsName();
-
-    /**
-     * @return array with the last author of the officialtext
-     */
-    public function getAuthorName();
     
     /**
      * Set title

@@ -10,8 +10,8 @@
         <field name="title" column="title" type="string" />
 
         <field name="body" column="body" type="text" />
-
-        <field name="src" column="src" type="string" />
+        
+        <field name="url" column="url" type="string" nullable="true" />
 
         <field name="createdAt" column="created_at" type="date" />
 
