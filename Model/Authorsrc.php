@@ -21,33 +21,15 @@ abstract class Authorsrc implements AuthorsrcInterface
      */
     protected $name;
 
-    /**
-     * Firstname
-     *
-     * @var string
-     */
-    protected $firstname;
-
-    /**
-     * Birthday
-     *
-     * @var datetime
-     */
-    protected $birthday;
-
-   /**
-     * Website
-     *
-     * @var string
-     */
-    protected $website;
 
    /**
      * Bio
      *
      * @var text
      */
-    protected $bio;
+    //protected $bio;
+
+    //protected $createdAt;
 
     /**
      * Should be mapped by the end developer.
@@ -81,73 +63,40 @@ abstract class Authorsrc implements AuthorsrcInterface
         $this->name = $name;
     }
 
+
     /**
      * @return string
      */
-    public function getFirstName()
-    {
-        return $this->firstname;
-    }
+    //public function getCreatedAt()
+    //{
+    //    return $this->createdAt;
+    //}
 
     /**
      * @param  string
      * @return null
      */
-    public function setFirstName($firstname)
-    {
-        $this->firstname = $firstname;
-    }
-
-    /**
-     * @return string
-     */
-    public function getBirthday()
-    {
-        return $this->birthday;
-    }
-
-    /**
-     * @param  string
-     * @return null
-     */
-    public function setBirthday($birthday)
-    {
-        $this->birthday = $birthday;
-    }
-
-    /**
-     * @return string
-     */
-    public function getWebsite()
-    {
-        return $this->website;
-    }
-
-    /**
-     * @param  string
-     * @return null
-     */
-    public function setWebsite($website)
-    {
-        $this->website = $website;
-    }
+    //public function setCreatedAt($createdAt)
+    //{
+    //    $this->createdAt = $createdAt;
+    //}
 
     /**
      * @return text
      */
-    public function getBio()
-    {
-        return $this->bio;
-    }
+    //public function getBio()
+    //{
+    //    return $this->bio;
+    //}
 
     /**
      * @param  text
      * @return null
      */
-    public function setBio($bio)
-    {
-        $this->bio = $bio;
-    }
+    //public function setBio($bio)
+    //{
+    //    $this->bio = $bio;
+    //}
 
     /**
      * @return OfficialtextInterface

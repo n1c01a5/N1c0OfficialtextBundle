@@ -23,10 +23,8 @@ class AuthorsrcType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('firstname')
-            ->add('birthday', 'birthday', array())
-            ->add('website')
-            ->add('bio')
+            //->add('createdAt')
+            //->add('bio')
         ;
     }
     

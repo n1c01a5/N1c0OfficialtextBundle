@@ -25,20 +25,6 @@ Interface AuthorsrcInterface
     public function getName();
 
     /**
-     * Set firstname
-     *
-     * @param string $firstname
-     * @return AuthorsrcInterface
-     */
-    public function setFirstName($firstname);
-
-    /**
-     * Get firstname
-     *
-     * @return string
-     */
-    public function getFirstName();
-    /**
      * @return OfficialtextInterface
      */
     public function getOfficialtext();

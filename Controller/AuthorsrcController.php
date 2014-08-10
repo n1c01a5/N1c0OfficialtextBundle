@@ -205,7 +205,6 @@ class AuthorsrcController extends FOSRestController
                 $form->bind($request);
 
                 if ($form->isValid()) {
-                    $authorsrc->addOfficialtext($officialtext);
                     $authorsrcManager->saveAuthorsrc($authorsrc);
                 
                     $routeOptions = array(

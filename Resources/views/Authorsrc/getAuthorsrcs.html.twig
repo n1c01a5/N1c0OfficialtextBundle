@@ -1,0 +1,11 @@
+<h1 class="title">{{ 'authorsrc.list'|trans({}, 'n1c0AuthorsrcBundle') }}</h1>
+<ul id="authorsrc-list">
+{% for authorsrc in authorsrcs %}
+    <li>
+        <a href="{{ path('api_1_get_authorsrc', {'id': authorsrc.id}) }}">{{ authorsrc.title }}</a>
+        {#[<a href="{{ path('api_1_edit_authorsrcs', {'id': authorsrc.id}) }}">{{ 'authorsrc.edit.link'|trans({}, 'n1c0AuthorsrcBundle') }}</a>]#}
+        {#[<a href="{{ path('api_1_remove_authorsrcs', {'id': authorsrc.id}) }}">{{ 'authorsrc.remove.link'|trans({}, 'n1c0AuthorsrcBundle') }}</a>]#}
+    </li>
+{% endfor %}
+</ul>
+<p><a href="{{ path('api_1_new_authorsrc') }}">{{ 'authorsrc.new.link'|trans({}, 'n1c0AuthorsrcBundle') }}</a></p>
