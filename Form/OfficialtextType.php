@@ -22,6 +22,10 @@ class OfficialtextType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('authorsrc', 'entity', array(
+                'class' => 'BundleOfficialtextBundle:Authorsrcoff',
+                'property' => 'Name'
+            ))
             ->add('title')
             ->add('body')
             ->add('url')

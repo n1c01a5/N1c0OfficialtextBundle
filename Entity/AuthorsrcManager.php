@@ -48,27 +48,6 @@ class AuthorsrcManager extends BaseAuthorsrcManager
     }
 
     /**
-     * Returns a flat array of authorsrcs of a specific officialtext.
-     *
-     * @param  OfficialtextInterface $officialtext
-     * @return array           of OfficialtextInterface
-     */
-    public function findAuthorsrcsByOfficialtext(OfficialtextInterface $officialtext)
-    {
-        $qb = $this->repository
-                ->createQueryBuilder('i')
-                ->join('i.officialtext', 'd')
-                ->where('d.id = :officialtext')
-                ->setParameter('officialtext', $officialtext->getId());
-
-        $authorsrcs = $qb
-            ->getQuery()
-            ->execute();
-
-        return $authorsrcs;
-    }
-
-    /**
      * Find one authorsrc by its ID
      *
      * @param  array           $criteria
@@ -96,8 +75,6 @@ class AuthorsrcManager extends BaseAuthorsrcManager
      */
     protected function doSaveAuthorsrc(AuthorsrcInterface $authorsrc)
     {
-        $authorsrc->getOfficialtext()->setAuthorsrc($authorsrc);
-        $this->em->persist($authorsrc->getOfficialtext());
         $this->em->persist($authorsrc);
         $this->em->flush();
     }

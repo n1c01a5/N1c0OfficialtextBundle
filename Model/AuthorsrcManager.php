@@ -79,10 +79,6 @@ abstract class AuthorsrcManager implements AuthorsrcManagerInterface
      */
     public function saveAuthorsrc(AuthorsrcInterface $authorsrc)
     {
-        if (null === $authorsrc->getOfficialtext()) {
-            throw new InvalidAuthorsrcException('The authorsrc must have a officialtext');
-        }
-
         $event = new AuthorsrcPersistEvent($authorsrc);
         $this->dispatcher->dispatch(Events::AUTHORSRC_PRE_PERSIST, $event);
 

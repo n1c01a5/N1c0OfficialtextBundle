@@ -27,14 +27,6 @@ interface AuthorsrcManagerInterface
     public function findAuthorsrcById($id);
 
     /**
-     * Returns a flat array of authorsrcs with the specified officialtext.
-     *
-     * @param  OfficialtextInterface $officialtext
-     * @return array           of AuthorsrcInterface
-     */
-    public function findAuthorsrcsByOfficialtext(OfficialtextInterface $officialtext);
-
-    /**
      * Returns an empty authorsrc instance
      *
      * @return Authorsrc
