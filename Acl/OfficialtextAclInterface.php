@@ -32,7 +32,7 @@ interface OfficialtextAclInterface
      * @param  OfficialtextInterface $officialtext
      * @return boolean
      */
-    public function canReply(OfficialtextInterface $parent = null);
+    //public function canReply(OfficialtextInterface $parent = null);
 
     /**
      * Checks if the user should be able to edit a officialtext.
