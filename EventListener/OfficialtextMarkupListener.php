@@ -51,6 +51,6 @@ class OfficialtextMarkupListener implements EventSubscriberInterface
 
     public static function getSubscribedEvents()
     {
-        return array(Events::QUOTE_PRE_PERSIST => 'markup');
+        return array(Events::OFFICIALTEXT_PRE_PERSIST => 'markup');
     }
 }

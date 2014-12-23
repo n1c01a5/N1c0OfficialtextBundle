@@ -3,7 +3,7 @@
 /**
  * This file is chapter of the N1c0OfficialtextBundle package.
  *
- * (c) 
+ * (c)
  *
  * This source file is subject to the MIT license that is bundled
  * with this source code in the file LICENSE.
@@ -55,10 +55,12 @@ class N1c0OfficialtextExtension extends Extension
 
         $container->setAlias('n1c0_officialtext.form_factory.officialtext', $config['service']['form_factory']['officialtext']);
         $container->setAlias('n1c0_officialtext.form_factory.authorsrc', $config['service']['form_factory']['authorsrc']);
-      
+
         $container->setAlias('n1c0_officialtext.manager.officialtext', $config['service']['manager']['officialtext']);
         $container->setAlias('n1c0_officialtext.manager.authorsrc', $config['service']['manager']['authorsrc']);
 
+        // Add a condition if markup so...
+        $container->setAlias('n1c0_officialtext.markup', new Alias($config['service']['markup'], false));
     }
 
     protected function loadAcl(ContainerBuilder $container, array $config)

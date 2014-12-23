@@ -7,7 +7,7 @@
 
     <parameters>
         <parameter key="n1c0_officialtext.model.officialtext.class">N1c0\OfficialtextBundle\Entity\Officialtext</parameter>
-        <parameter key="n1c0_officialtext.model.authorsrc.class">N1c0\OfficialtextBundle\Entity\Authorsrc</parameter> 
+        <parameter key="n1c0_officialtext.model.authorsrc.class">N1c0\OfficialtextBundle\Entity\Authorsrc</parameter>
         <parameter key="n1c0_officialtext.manager.officialtext.default.class">N1c0\OfficialtextBundle\Entity\OfficialtextManager</parameter>
         <parameter key="n1c0_officialtext.manager.authorsrc.default.class">N1c0\OfficialtextBundle\Entity\AuthorsrcManager</parameter>
         <parameter key="n1c0_officialtext.listener.officialtext_blamer.class">N1c0\OfficialtextBundle\EventListener\OfficialtextBlamerListener</parameter>
@@ -22,7 +22,7 @@
         <service id="n1c0_officialtext.entity_manager" factory-service="doctrine" factory-method="getManager" class="Doctrine\ORM\EntityManager" public="false">
             <argument>%n1c0_officialtext.model_manager_name%</argument>
         </service>
-    
+
         <service id="n1c0_officialtext.manager.officialtext.default" class="%n1c0_officialtext.manager.officialtext.default.class%">
             <argument type="service" id="event_dispatcher" />
             <argument type="service" id="n1c0_officialtext.entity_manager" />
@@ -98,7 +98,7 @@
             <argument /> <!-- Delete role -->
             <argument>%n1c0_officialtext.model.officialtext.class%</argument>
         </service>
-     
+
 
         <service id="n1c0_officialtext.manager.officialtext.acl" class="%n1c0_officialtext.manager.officialtext.acl.class%" public="false">
             <argument type="service" id="n1c0_officialtext.manager.officialtext.default" />
@@ -107,9 +107,14 @@
         <service id="n1c0_officialtext.manager.authorsrc.acl" class="%n1c0_officialtext.manager.authorsrc.acl.class%" public="false">
             <argument type="service" id="n1c0_officialtext.manager.authorsrc.default" />
             <argument type="service" id="n1c0_officialtext.acl.authorsrc" />
-        </service> 
+        </service>
         <service id="n1c0_officialtext.officialtext.download" class="%n1c0_officialtext.download.officialtext.class%">
             <argument type="service" id="n1c0_officialtext.manager.officialtext" on-invalid="null" />
+        </service>
+
+        <service id="n1c0_officialtext.listener.officialtext_markup" class="N1c0\OfficialtextBundle\EventListener\OfficialtextMarkupListener"><!-- If markup load -->
+            <tag name="kernel.event_subscriber" />
+            <argument type="service" id="n1c0_officialtext.markup" />
         </service>
     </services>
 

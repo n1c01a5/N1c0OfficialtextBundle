@@ -17,7 +17,7 @@ final class Events
      *
      * @var string
      */
-    const QUOTE_PRE_PERSIST = 'n1c0_officialtext.officialtext.pre_persist';
+    const OFFICIALTEXT_PRE_PERSIST = 'n1c0_officialtext.officialtext.pre_persist';
 
     /**
      * The POST_PERSIST event occurs after the persistence backend
@@ -30,7 +30,7 @@ final class Events
      *
      * @var string
      */
-    const QUOTE_POST_PERSIST = 'n1c0_officialtext.officialtext.post_persist';
+    const OFFICIALTEXT_POST_PERSIST = 'n1c0_officialtext.officialtext.post_persist';
 
     /**
      * The CREATE event occurs when the manager is asked to create
@@ -41,7 +41,7 @@ final class Events
      *
      * @var string
      */
-    const QUOTE_CREATE = 'n1c0_officialtext.officialtext.create';
+    const OFFICIALTEXT_CREATE = 'n1c0_officialtext.officialtext.create';
 
     /**
      * The PRE_PERSIST event occurs prior to the persistence backend

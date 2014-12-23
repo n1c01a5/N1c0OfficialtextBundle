@@ -20,7 +20,7 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('n1c0_officialtext')
             ->children()
-            
+
                 ->scalarNode('db_driver')->cannotBeOverwritten()->isRequired()->end()
                 ->scalarNode('model_manager_name')->defaultNull()->end()
 
@@ -96,6 +96,7 @@ class Configuration implements ConfigurationInterface
 
                             ->end()
                         ->end()
+                        ->scalarNode('markup')->end()
                     ->end()
                 ->end();
 

@@ -65,7 +65,7 @@ abstract class OfficialtextManager implements OfficialtextManagerInterface
         }
 
         $event = new OfficialtextEvent($officialtext);
-        $this->dispatcher->dispatch(Events::QUOTE_CREATE, $event);
+        $this->dispatcher->dispatch(Events::OFFICIALTEXT_CREATE, $event);
 
         return $officialtext;
     }
@@ -78,7 +78,7 @@ abstract class OfficialtextManager implements OfficialtextManagerInterface
     public function saveOfficialtext(OfficialtextInterface $officialtext)
     {
         $event = new OfficialtextPersistEvent($officialtext);
-        $this->dispatcher->dispatch(Events::QUOTE_PRE_PERSIST, $event);
+        $this->dispatcher->dispatch(Events::OFFICIALTEXT_PRE_PERSIST, $event);
 
         if ($event->isPersistenceAborted()) {
             return false;
@@ -87,7 +87,7 @@ abstract class OfficialtextManager implements OfficialtextManagerInterface
         $this->doSaveOfficialtext($officialtext);
 
         $event = new OfficialtextEvent($officialtext);
-        $this->dispatcher->dispatch(Events::QUOTE_POST_PERSIST, $event);
+        $this->dispatcher->dispatch(Events::OFFICIALTEXT_POST_PERSIST, $event);
 
         return true;
     }
