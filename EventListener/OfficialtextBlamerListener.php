@@ -72,7 +72,7 @@ class OfficialtextBlamerListener implements EventSubscriberInterface
 
         if ($this->securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
             $user = $this->securityContext->getToken()->getUser();
-            $officialtext->setAuthorsrc($user);
+            $officialtext->setAuthor($user);
             if (!$officialtext->getAuthors()->contains($user)) {
                 $officialtext->addAuthor($user);
             }

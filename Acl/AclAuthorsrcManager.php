@@ -2,6 +2,7 @@
 
 namespace N1c0\OfficialtextBundle\Acl;
 
+use N1c0\OfficialtextBundle\Model\OfficialtextInterface;
 use N1c0\OfficialtextBundle\Model\AuthorsrcInterface;
 use N1c0\OfficialtextBundle\Model\AuthorsrcManagerInterface;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
@@ -68,7 +69,7 @@ class AclAuthorsrcManager implements AuthorsrcManagerInterface
      * {@inheritDoc}
      */
     public function findAllAuthorsrcs(){
-    }                 
+    }
 
 
     /**
@@ -116,9 +117,9 @@ class AclAuthorsrcManager implements AuthorsrcManagerInterface
     /**
      * {@inheritDoc}
      */
-    public function createAuthorsrc($id = null)
+    public function createAuthorsrc(OfficialtextInterface $officialtext)
     {
-        return $this->realManager->createAuthorsrc($id);
+        return $this->realManager->createAuthorsrc($officialtext);
     }
 
     /**
