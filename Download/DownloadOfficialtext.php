@@ -4,7 +4,7 @@ namespace N1c0\OfficialtextBundle\Download;
 
 use Pandoc\Pandoc;
 
-class DownloadOfficialtext 
+class DownloadOfficialtext
 {
     private $appOfficialtext;
 
@@ -19,15 +19,12 @@ class DownloadOfficialtext
 
         $officialtext = $this->appOfficialtext->findOfficialtextById($id);
 
-        $raw = '%'.$officialtext->getTitle(); 
+        $raw = '%'.$officialtext->getTitle();
         $raw .= "\r\n";
-        $raw .= '%'; 
+        $raw .= '%'.$officialtext->getAuthorsrc();
 
-        foreach($officialtext->getAuthorsrcs() as $author) {
-            $raw .= $author.' ;';
-        }
         $raw .= "\r\n";
-        $raw .= '%'.$officialtext->getDate()->format("m M Y");  
+        $raw .= '%'.$officialtext->getCreatedAt()->format("m M Y");
         $raw .= "\r\n";
         $raw .= $officialtext->getBody();
 

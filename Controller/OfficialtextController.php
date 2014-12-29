@@ -110,7 +110,7 @@ class OfficialtextController extends FOSRestController
      *     200 = "Returned when successful"
      *   }
      * )
-     * 
+     *
      * @Annotations\View(
      *  template = "N1c0OfficialtextBundle:Officialtext:editOfficialtext.html.twig",
      *  templateVar = "form"
@@ -124,9 +124,9 @@ class OfficialtextController extends FOSRestController
         $officialtext = $this->getOr404($id);
         $form = $this->container->get('n1c0_officialtext.form_factory.officialtext')->createForm();
         $form->setData($officialtext);
-    
+
         return array(
-            'form' => $form, 
+            'form' => $form,
             'id'=>$id
         );
     }
@@ -168,7 +168,7 @@ class OfficialtextController extends FOSRestController
 
                 if ($form->isValid()) {
                     $officialtextManager->saveOfficialtext($officialtext);
-                
+
                     $routeOptions = array(
                         'id' => $form->getData()->getId(),
                         '_format' => $request->get('_format')
@@ -406,7 +406,7 @@ class OfficialtextController extends FOSRestController
      * )
      *
      * @param int     $id      the officialtext uuid
-     * @param string  $format  the format to convert officialtext 
+     * @param string  $format  the format to convert officialtext
      *
      * @return Response
      * @throws NotFoundHttpException when officialtext not exist
@@ -466,13 +466,13 @@ class OfficialtextController extends FOSRestController
                 $ext = "epub";
             break;
             default:
-                $ext = $format;       
-        }        
+                $ext = $format;
+        }
         $response->headers->set('Content-disposition', 'filename='.$officialtext->getTitle().'.'.$ext);
-         
+
         return $response;
     }
-    
+
     /**
      * Get logs of a single Officialtext.
      *
@@ -500,7 +500,7 @@ class OfficialtextController extends FOSRestController
         $repo = $em->getRepository('Gedmo\Loggable\Entity\LogEntry'); // we use default log entry class
         $entity = $em->find('Entity\Officialtext', $officialtext->getId());
         $logs = $repo->getLogEntries($entity);
-        
+
         return $logs;
     }
 }
