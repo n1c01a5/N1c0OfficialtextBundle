@@ -30,7 +30,7 @@ class DownloadOfficialtext
 
         $options = array(
             "latex-engine" => "xelatex",
-            "from"         => "markdown",
+            "from"         => "markdown_mmd",
             "to"           => $format,
         );
 
