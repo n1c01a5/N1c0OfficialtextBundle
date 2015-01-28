@@ -19,13 +19,11 @@ class DownloadOfficialtext
 
         $officialtext = $this->appOfficialtext->findOfficialtextById($id);
 
-        $raw = '%'.$officialtext->getTitle();
-        $raw .= "\r\n";
-        $raw .= '%'.$officialtext->getAuthorsrc();
+        $title  = $officialtext->getTitle();
+        $author = $officialtext->getAuthorName();
+        $date   = $officialtext->getCreatedAt()->format("m M Y");
 
-        $raw .= "\r\n";
-        $raw .= '%'.$officialtext->getCreatedAt()->format("m M Y");
-        $raw .= "\r\n";
+        $raw = "Title: $title\nAuthor: $author\nDate: $date\n\n";
         $raw .= $officialtext->getBody();
 
         $options = array(
