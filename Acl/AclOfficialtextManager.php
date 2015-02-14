@@ -41,9 +41,9 @@ class AclOfficialtextManager implements OfficialtextManagerInterface
     /**
      * {@inheritDoc}
      */
-    public function all($limit = 5, $offset = 0)
+    public function all($limit, $offset)
     {
-        $officialtexts = $this->realManager->all();
+        $officialtexts = $this->realManager->all($limit, $offset);
 
         if (!$this->authorizeViewOfficialtext($officialtexts)) {
             throw new AccessDeniedException();
@@ -68,7 +68,7 @@ class AclOfficialtextManager implements OfficialtextManagerInterface
      * {@inheritDoc}
      */
     public function findAllOfficialtexts(){
-    }                 
+    }
 
 
     /**
