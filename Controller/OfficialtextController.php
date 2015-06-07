@@ -408,7 +408,7 @@ class OfficialtextController extends FOSRestController
      * @param int     $id      the officialtext uuid
      * @param string  $format  the format to convert officialtext
      *
-     * @return Response
+     * @return null
      * @throws NotFoundHttpException when officialtext not exist
      */
     public function getOfficialtextConvertAction($id, $format)
@@ -419,9 +419,6 @@ class OfficialtextController extends FOSRestController
 
         $officialtextConvert = $this->container->get('n1c0_officialtext.officialtext.download')->getConvert($id, $format);
 
-        $response = new Response();
-        $response->setContent($officialtextConvert);
-        $response->headers->set('Content-Type', 'application/force-download');
         switch ($format) {
             case "native":
                 $ext = "";
@@ -468,9 +465,15 @@ class OfficialtextController extends FOSRestController
             default:
                 $ext = $format;
         }
-        $response->headers->set('Content-disposition', 'filename='.$officialtext->getTitle().'.'.$ext);
 
-        return $response;
+        if ($ext == "") {$ext = "txt";}
+        $filename = $officialtext->getTitle().'.'.$ext;
+        $fh = fopen('./uploads/'.$filename, "w+");
+        if($fh==false)
+            die("Oops! Unable to create file");
+        fputs($fh, $officialtextConvert);
+
+        return $this->redirect($_SERVER['SCRIPT_NAME'].'/../uploads/'.$filename);
     }
 
     /**
