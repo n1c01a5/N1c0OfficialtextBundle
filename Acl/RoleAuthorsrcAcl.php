@@ -2,7 +2,7 @@
 
 namespace N1c0\OfficialtextBundle\Acl;
 
-use N1c0\AuthorsrcBundle\Model\AuthorsrcInterface;
+use N1c0\OfficialtextBundle\Model\AuthorsrcInterface;
 use Symfony\Component\Security\Core\SecurityContextInterface;
 
 /**

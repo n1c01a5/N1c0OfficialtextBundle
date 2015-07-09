@@ -32,7 +32,7 @@ class AuthorsrcManager extends BaseAuthorsrcManager
     /**
      * Constructor.
      *
-     * @param \Symfony\Component\EventDispatcher\EventDispatcherInterface $dispatcher 
+     * @param \Symfony\Component\EventDispatcher\EventDispatcherInterface $dispatcher
      * @param \Doctrine\ORM\EntityManager                                 $em
      * @param string                                                      $class
      */
@@ -69,7 +69,15 @@ class AuthorsrcManager extends BaseAuthorsrcManager
     }
 
     /**
-     * Performs persisting of the authorsrc. 
+     * {@inheritDoc}
+     */
+    public function isNewAuthorsrc(AuthorsrcInterface $authorsrc)
+    {
+        return !$this->em->getUnitOfWork()->isInIdentityMap($authorsrc);
+    }
+
+    /**
+     * Performs persisting of the authorsrc.
      *
      * @param OfficialtextInterface $officialtext
      */

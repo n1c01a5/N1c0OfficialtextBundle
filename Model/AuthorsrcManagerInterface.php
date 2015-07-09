@@ -34,6 +34,15 @@ interface AuthorsrcManagerInterface
     public function createAuthorsrc(OfficialtextInterface $officialtext);
 
     /**
+     * Checks if the authorsrc was already persisted before, or if it's a new one.
+     *
+     * @param AuthorsrcInterface $authorsrc
+     *
+     * @return boolean True, if it's a new authorsrc
+     */
+    public function isNewAuthorsrc(AuthorsrcInterface $authorsrc);
+
+    /**
      * Saves a authorsrc
      *
      * @param  AuthorsrcInterface         $authorsrc
