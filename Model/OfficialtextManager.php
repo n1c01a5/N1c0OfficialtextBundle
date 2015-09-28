@@ -38,7 +38,7 @@ abstract class OfficialtextManager implements OfficialtextManagerInterface
      */
     public function all($limit, $offset)
     {
-        return $this->repository->findBy(array(), null, $limit, $offset);
+        return $this->repository->findBy(array(), array('createdAt' => 'DESC'), $limit, $offset);
     }
 
     /**
